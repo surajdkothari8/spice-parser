@@ -1,0 +1,11 @@
+parameter-|temp=0|.raw
+parameter-|temp=10|.raw
+parameter-|temp=20|.raw
+parameter-|temp=30|.raw
+parameter-|temp=40|.raw
+parameter-|temp=50|.raw
+parameter-|temp=60|.raw
+parameter-|temp=70|.raw
+parameter-|temp=80|.raw
+parameter-|temp=90|.raw
+parameter-|temp=100|.raw
