@@ -1,7 +1,11 @@
 #!usr/bin/perl
 
-use strict;
 
+###########################################################################
+## 		
+##
+
+use strict;
 
 use Data::Dumper qw(Dumper);
 use 5.010;
@@ -12,7 +16,7 @@ my @FilesArray = <FILES>;
 close(FILES);
 
 ##############---Initial Read for Number of Variables---##################
-open(SAMPLE, "<$FilesArray[0]") or die ("Couldn't open the file");
+open(SAMPLE, "<parameter-|temp=0|.raw") or die ("Couldn't open the file");
 my @InitialReadVariablePoints = <SAMPLE>;
 my @SplitArray;
 my $NoOfVariables;
@@ -31,30 +35,22 @@ close(SAMPLE);
 
 
 ####################---Select the Input Parameter---############################
-my $flag= 7;
+my $flag=0;
 
 print "Select one parameter from the following (1 to 4): \n";
-for(my $var = 7; $var < ($flag+$NoOfVariables); $var++) {
-print "$InitialReadVariablePoints[$var]";
-}
+print "0:	v-sweep	voltage\n";	#Default Parameter.. Printed Everytime
+print "1:	drain	voltage\n";
+print "2:	gate 	voltage\n";
+print "3:	i(vvds) current\n";
+print "4:	i(vvgs) current\n";
 
 my $SelectionInput = <STDIN>;
 chomp($SelectionInput);
-my $temp;
-my @InputArray;
-my @InputArrayVar; 
-for (my $b = 0; $b < ($NoOfVariables); $b++) {
-	@InputArrayVar = split(' ', $InitialReadVariablePoints[$b+7]); 	
-	$InputArray[$b] = $InputArrayVar[1]; 
-}
- 
-if($SelectionInput !=0) {
-$temp= $InputArray[$SelectionInput];
-}
+
 
 ######################---Display Logic---##################################
-open(OUTFILE, ">OUTPUTFINAL.txt") or die("Can't Open the File");
-open(DEMOFILE, "<$FilesArray[0]") or die("Couldn't Open the File");
+open(OUTFILE, ">FINAL_OUTPUT.txt") or die("Can't Open the File");
+open(DEMOFILE, "<parameter-|temp=0|.raw") or die("Couldn't Open the File");
 
 my @Display = <DEMOFILE>;
 my $count = 0;
@@ -77,7 +73,7 @@ for ($count = 0; $count < 8+$TotalNoOfFiles; $count++) {
 		 my $varName= $FilesArray[$count-8];
 		 $varName =~ s/parameter-\|//;
 		 $varName =~ s/\|\.raw//; 
-		print OUTFILE "	",$count-7,"	$temp|$varName"; 		
+		print OUTFILE "	",$count-7,"	$varName"; 		
 		}
 		
 }
