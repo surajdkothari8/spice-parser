@@ -105,7 +105,7 @@ for ( $i=0; $i <$NoOfPoints; $i++) {
 			
 		}
 			
-			$Offset = $Offset + $NoOfVariables + 1;	
+			$Offset = $Offset + 6;	
 			
 }
 
