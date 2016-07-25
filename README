@@ -1,1 +1,28 @@
-This is README
+###########################################################################
+###########################################################################
+###     								###
+###	FileName: README						###
+###	 								###
+###	Decription: spice-parser.pl					###	
+###	Perl Script to parse Spice Deck Raw files and to obtain		###
+### 	signal information from each file and produce a formatted	###
+###	output to help analyze post-processing results required		###
+###	for A_Characterization. 					###
+###     								###
+###	Created By: Suraj Kothari					###
+###	Created On: 07/18/2016						###
+###     								###
+###########################################################################
+###########################################################################
+	 
+Steps to execute the spice-parser perl file:
+1. Open the Files1.txt file and feed in the raw files you you wish to process on. 
+2. Use the following command to execute/compile the perl file: 
+	perl <filename.pl>
+3. Enter the signal paramaters and values you'd like to obtain from the Raw Files
+4. This script will generate the required information in a file named OUTPUTFINAL.txt
+5. Check to see if you have received the desired values. 
+
+
+
+
